@@ -4,7 +4,7 @@ const fetchWeather = async (cityName = 'new york') => {
     const result = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`, {
       headers: {}
     });
-    const json = result.json();
+    const json = await result.json();
     return json;
   } catch (e) {
     console.error(e);
