@@ -11,6 +11,20 @@ const fetchWeather = async (cityName = 'new york') => {
   };
 };
 
+const convertKtoC = (k) => {
+  const c = k - 273.15;
+  return (c.toFixed(0));
+};
+
+const convertKtoF = (k) => {
+  const c = convertKtoC(k);
+  const f = (c) * 9/5 + 32;
+
+  return (f.toFixed(0));
+};
+
 export {
   fetchWeather,
+  convertKtoC,
+  convertKtoF,
 }

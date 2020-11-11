@@ -3,10 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 import WeatherWidget from "./components/WeatherWidget";
 import {useWeather} from "./useWeather";
+import Scale from "./components/Scale";
 
 
 const App = () => {
-  const { city, setCity, cityWeather, isLoading} = useWeather();
+  const { city, setCity, cityWeather, isLoading, scale, setScale} = useWeather();
   const loading = (isLoading && <div className='loading'>...</div>);
   return (
     <div className="App">
@@ -22,10 +23,10 @@ const App = () => {
           const {target:{value = ''} = {}} = e;
           setCity(value);
         }} />
-        <WeatherWidget cityWeather={cityWeather} />
+        <Scale setScale={setScale} scale={scale}/>
+        <WeatherWidget cityWeather={cityWeather} scale={scale} />
         {loading}
       </div>
-
       </main>
     </div>
   );

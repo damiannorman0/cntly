@@ -7,6 +7,7 @@ const useWeather = () => {
   const [city, setCity] = useState('new york');
   const [weather, setWeather] = useState({});
   const [cityWeather, setCityWeather] = useState({});
+  const [scale, setScale] = useState('C');
   const [isLoading, setIsLoading] = useState(false);
 
 
@@ -31,7 +32,7 @@ const useWeather = () => {
       }
     }
 
-    const debounced = debounce(get, 1000);
+    const debounced = debounce(get, 500);
     debounced();
 
   }, [city]);
@@ -42,6 +43,7 @@ const useWeather = () => {
     setCity,
     cityWeather,
     setCityWeather,
+    scale, setScale,
     isLoading,
   });
 };
