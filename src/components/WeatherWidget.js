@@ -4,7 +4,7 @@ import React from 'react';
 const WeatherWidget = (props) => {
   const getImageClass = (description = '') => {
     let d = description.toLowerCase().replace(' ', '');
-    if(description.includes('cloud')) {
+    if(d.includes('cloud')) {
       d = 'cloudy';
     }
 
