@@ -4,8 +4,10 @@ import './App.css';
 import WeatherWidget from "./components/WeatherWidget";
 import {useWeather} from "./useWeather";
 
+
 const App = () => {
-  const { city, setCity, cityWeather,} = useWeather();
+  const { city, setCity, cityWeather, isLoading} = useWeather();
+  const loading = (isLoading && <div className='loading'>...</div>);
   return (
     <div className="App">
       <header className="App-header">
@@ -21,7 +23,9 @@ const App = () => {
           setCity(value);
         }} />
         <WeatherWidget cityWeather={cityWeather} />
+        {loading}
       </div>
+
       </main>
     </div>
   );
