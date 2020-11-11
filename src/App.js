@@ -2,8 +2,10 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import WeatherWidget from "./components/WeatherWidget";
+import {useWeather} from "./useWeather";
 
-function App() {
+const App = () => {
+  const { city, setCity, cityWeather,} = useWeather();
   return (
     <div className="App">
       <header className="App-header">
@@ -12,9 +14,15 @@ function App() {
           Contently Weather Demo
         </p>
       </header>
-      <div>
-        <WeatherWidget />
+      <main>
+      <div className='weather-widget'>
+        <input placeholder='enter city' value={city} onChange={(e) => {
+          const {target:{value = ''} = {}} = e;
+          setCity(value);
+        }} />
+        <WeatherWidget cityWeather={cityWeather} />
       </div>
+      </main>
     </div>
   );
 }
