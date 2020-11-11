@@ -32,12 +32,12 @@ const WeatherWidget = (props) => {
   const imgClass = getImageClass(conditions);
 
   return (
-    <div>
+    <>
       <div className={imgClass} />
       <p>Conditions: {conditions}</p>
       <p>Low: {temp_min}</p>
       <p>Hight: {temp_max}</p>
-    </div>
+    </>
   );
 };
 
